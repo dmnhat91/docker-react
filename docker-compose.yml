@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    build: 
+      # 'context' option specify where we want all the files and folder for this image to be pulled from
+      context: .
+      # look in the current directory, find a file with that name and use it to build the image
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app
